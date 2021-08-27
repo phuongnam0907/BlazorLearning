@@ -1,0 +1,17 @@
+﻿<div class="ml-5">
+    <h3 style="color: @Color">ComponentTwo</h3>
+    <p>
+        Counter: @CounterValue
+        <br />
+        Color of Title: @Color
+    </p>
+</div>
+
+@code {
+    [CascadingParameter(Name= "Counter")]
+    public int CounterValue { get; set; }
+
+    [CascadingParameter(Name = "TitleColor")]
+    public string Color { get; set; }
+
+}

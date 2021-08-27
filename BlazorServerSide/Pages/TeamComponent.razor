@@ -1,0 +1,24 @@
+﻿@page "/team/{id:int}"
+
+<TitleComponent Department="Team Member"></TitleComponent>
+<p>
+    Team Name: @team.Name
+    <br/>
+    Team Region: @team.Region
+    <br/>
+</p>
+<table class="table">
+    <tr>
+        <th>ID Member</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    @foreach (var mem in members)
+    {
+        <tr>
+            <td>@mem.Id</td>
+            <td>@mem.Name</td>
+            <td>@mem.Age</td>
+        </tr>
+    }
+</table>

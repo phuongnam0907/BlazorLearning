@@ -1,0 +1,32 @@
+﻿
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br/>
+<br/>
+<CascadingValue Name="Counter" Value="@currentCount">
+    <CascadingValue Name="TitleColor" Value="@("red")">
+        <ComponentOne></ComponentOne>
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private int currentCount = 0;
+
+    [Parameter]
+    public EventCallback<int> SetCurrentCount { get; set; }
+
+    [Parameter]
+    public Action<int> SetNewCounter { get; set; }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        SetCurrentCount.InvokeAsync(currentCount);
+        SetNewCounter.Invoke(currentCount);
+    }
+}

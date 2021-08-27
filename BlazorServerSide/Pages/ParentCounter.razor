@@ -1,0 +1,26 @@
+﻿@page "/counter"
+
+<TitleComponent Department="Parent Counter"></TitleComponent>
+<br />
+<p>
+    Method change 1: @count1
+</p>
+<p>
+    Method change 2: @count2
+</p>
+<Counter SetCurrentCount="SetCurrentCountMethod1" SetNewCounter="SetCurrentCountMethod2"></Counter>
+
+@code {
+    private int count1;
+    private int count2;
+
+    private void SetCurrentCountMethod1(int value)
+    {
+        count1 = value * 10;
+    }
+    private void SetCurrentCountMethod2(int value)
+    {
+        count2 = value * -1;
+        StateHasChanged();
+    }
+}
